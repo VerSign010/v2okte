@@ -2,8 +2,11 @@
 
 ### 注册地址：https://okteto.com/
 
-点击部署 ![image](https://user-images.githubusercontent.com/89477009/133904828-38ef592c-ece3-45e7-a85e-812af23b756a.png)
-按要求链接后，找到本项目 ![image](https://user-images.githubusercontent.com/89477009/133905123-d40e3b72-49a5-46ca-9755-995f15dd49e5.png)  部署就行了
+点击部署 
+![image](https://user-images.githubusercontent.com/89477009/133904828-38ef592c-ece3-45e7-a85e-812af23b756a.png)
+
+按要求链接后，找到本项目 
+![image](https://user-images.githubusercontent.com/89477009/133905123-d40e3b72-49a5-46ca-9755-995f15dd49e5.png)  部署就行了
 
  
 
