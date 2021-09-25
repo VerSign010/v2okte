@@ -6,7 +6,7 @@
 
 对部署时需设定的变量名称做如下说明：
 
-UUID: 自行修改configure.sh文件中的UUID变量
+UUID: 自行修改entrypoint.sh文件中的UUID变量
 
 路径：/app
 
