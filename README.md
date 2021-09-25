@@ -1,4 +1,4 @@
-# oktetov2
+# okteto部署vless
 
 ### 注册地址：https://okteto.com/
 
@@ -16,19 +16,23 @@
 
 ### 变量
 
-对部署时需设定的变量名称做如下说明。
+对部署时需设定的变量名称做如下说明：
 
-| 变量 | 默认值 | 说明 |
-| :--- | :--- | :--- |
-| `ID` | `自定义` | VMess 用户主 ID，用于身份验证，为 UUID 格式 |
-| `AID` | `64` | 为进一步防止被探测所设额外 ID，即 AlterID，范围为 0 至 65535 |
-| `WSPATH` | `/ray` | WebSocket 所使用的 HTTP 协议路径 |
+UUID: 自行修改configure.sh文件中的UUID变量
+路径：/app
 
-## 接入 CloudFlare
+# 通过 CloudFlare Workers 反向代理
 
-以下两种方式均可以将应用接入 CloudFlare，从而在一定程度上提升速度。
-
- 1. 为应用绑定域名，并将该域名接入 CloudFlare
- 2. 通过 CloudFlare Workers 反向代理
-
+```js
+addEventListener(
+    "fetch",event => {
+    let url=new URL(event.request.url);
+    url.hostname="xxx.cloud.okteto.net;
+    let request=new Request(url,event.request);
+    event. respondWith(
+      fetch(request)
+    )
+  }
+)
+```
 
