@@ -5,33 +5,42 @@ DIR_CONFIG="/etc/v2ray"
 DIR_RUNTIME="/usr/bin"
 DIR_TMP="$(mktemp -d)"
 
-ID=50dea11e-f810-411f-bf78-c61e3da33e53
-AID=64
-WSPATH=/ray
+UUID=50dea11e-f810-411f-bf78-c61e3da33e53
+WSPATH=/app
 PORT=80
 
 # Write V2Ray configuration
 cat << EOF > ${DIR_TMP}/heroku.json
 {
-    "inbounds": [{
-        "port": ${PORT},
-        "protocol": "vmess",
-        "settings": {
-            "clients": [{
-                "id": "${ID}",
-                "alterId": ${AID}
-            }]
-        },
-        "streamSettings": {
-            "network": "ws",
-            "wsSettings": {
-                "path": "${WSPATH}"
-            }
+  "log": {
+    "loglevel": "none"
+  },
+  "inbounds": [
+    {
+      "port": $PORT,
+      "protocol": "VLESS",
+      "settings": {
+        "clients": [
+          {
+            "id": "$UUID",
+            "alterId": 0
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "$WSPATH"
         }
-    }],
-    "outbounds": [{
-        "protocol": "freedom"
-    }]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom"
+    }
+  ]
 }
 EOF
 
